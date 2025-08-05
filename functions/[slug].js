@@ -1,4 +1,30 @@
 export async function onRequest(context) {
+  // 🟡 Проверка на Яндекс-файл
+  if (context.params.slug === 'yandex_670cdc5834c614f4.html') {
+    return new Response(`yandex-verification: 670cdc5834c614f4`, {
+      headers: {
+        'Content-Type': 'text/html',
+      },
+    });
+  }
+
+  // 🔁 Твой основной код
+  const redirects = {
+    "/abc": "https://t.me/abc",
+    "/casino": "https://t.me/casino_channel"
+  };
+
+  const slug = '/' + context.params.slug;
+  const url = redirects[slug];
+
+  if (url) {
+    return Response.redirect(url, 302);
+  }
+
+  return Response.redirect('https://slotsgame.pages.dev', 302);
+}
+
+export async function onRequest(context) {
 const urlMap = {
   "/ackrubl-slots-draon-ace": "﻿https://t.me/s/sevenk_bonuses_fun",
   "/ackrubl-slots-draon-aim": "https://t.me/s/sevenk_original",
