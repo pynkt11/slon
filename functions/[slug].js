@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-  const slug = '/' + context.params.slug;
+  const slug = new URL(context.request.url).pathname;
 
   // 🟡 Обработка Яндекс-файла
   if (slug === '/yandex_670cdc5834c614f4.html') {
@@ -1992,9 +1992,8 @@ export async function onRequest(context) {
   "/trackrubli-slot-drift-x": "https://t.me/s/Turbo_infoxkved",
   "/trackrubli-slot-drift-zone": "https://t.me/s/Izzi_info",
   "/trackrubli-slot-drift-zoneone": "https://t.me/s/Friends_info",
-};
+  };
 
-  const slug = new URL(context.request.url).pathname;
   const targetUrl = urlMap[slug];
 
   if (targetUrl) {
