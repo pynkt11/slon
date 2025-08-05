@@ -1,11 +1,18 @@
 export async function onRequest(context) {
   const slug = new URL(context.request.url).pathname;
 
-  // 🟡 Обработка Яндекс-файла
+  // 🟡 Обработка Яндекс-файла — отдаём HTML-документ
   if (slug === '/yandex_670cdc5834c614f4.html') {
-    return new Response(`yandex-verification: 670cdc5834c614f4`, {
+    const html = `<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>Verification: 670cdc5834c614f4</body>
+</html>`;
+    return new Response(html, {
       headers: {
-        'Content-Type': 'text/html',
+        'Content-Type': 'text/html; charset=UTF-8',
       },
     });
   }
