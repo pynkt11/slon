@@ -1,10 +1,22 @@
 export async function onRequest(context) {
-const urlMap = {
-  "/ackrubl-slots-draon-ace": "﻿https://t.me/s/sevenk_bonuses_fun",
-  "/ackrubl-slots-draon-aim": "https://t.me/s/sevenk_original",
-  "/ackrubl-slots-draon-arcade": "https://t.me/s/Sol_bonus_kasino",
-  "/ackrubl-slots-draon-bet": "https://t.me/s/Fonbet_gaming",
-  "/ackrubl-slots-draon-blade": "https://t.me/s/Sol_promocode_site",
+  const slug = '/' + context.params.slug;
+
+  // 🟡 Обработка Яндекс-файла
+  if (slug === '/yandex_670cdc5834c614f4.html') {
+    return new Response(`yandex-verification: 670cdc5834c614f4`, {
+      headers: {
+        'Content-Type': 'text/html',
+      },
+    });
+  }
+
+  // ✅ Твоя карта редиректов
+  const urlMap = {
+    "/ackrubl-slots-draon-ace": "﻿https://t.me/s/sevenk_bonuses_fun",
+    "/ackrubl-slots-draon-aim": "https://t.me/s/sevenk_original",
+    "/ackrubl-slots-draon-arcade": "https://t.me/s/Sol_bonus_kasino",
+    "/ackrubl-slots-draon-bet": "https://t.me/s/Fonbet_gaming",
+    "/ackrubl-slots-draon-blade": "https://t.me/s/Sol_promocode_site",
   "/ackrubl-slots-draon-blast": "https://t.me/s/MobileCasino888",
   "/ackrubl-slots-draon-blitz": "https://t.me/s/Fresh_websiti",
   "/ackrubl-slots-draon-bonus": "https://t.me/s/Rox_hot",
