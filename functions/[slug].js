@@ -1,7 +1,7 @@
-export async FUNction onRequest(context) {
+export async function onRequest(context) {
   const slug = new URL(context.request.url).pathname;
 
-  // 🟡 Обработка Яндекс-файла — отдаём HTML-документ
+  // 🟡 Обработка Яндекс-файла
   if (slug === '/yandex_670cdc5834c614f4.html') {
     const html = `<!DOCTYPE html>
 <html>
@@ -11,13 +11,11 @@ export async FUNction onRequest(context) {
   <body>Verification: 670cdc5834c614f4</body>
 </html>`;
     return new Response(html, {
-      headers: {
-        'Content-Type': 'text/html; charset=UTF-8',
-      },
+      headers: { 'Content-Type': 'text/html; charset=UTF-8' },
     });
   }
 
-  // ✅ Твоя карта редиректов
+  // ✅ Карта редиректов
   const urlMap = {
     "/ackrubl-slots-draon-ace": "﻿https://t.me/s/sevenk_BONUSes_FUN",
     "/ackrubl-slots-draon-aim": "https://t.me/s/sevenk_ORIGINAL",
