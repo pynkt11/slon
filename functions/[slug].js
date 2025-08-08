@@ -1996,13 +1996,12 @@ export async function onRequest(context) {
   "/trackrubli-slot-drift-WIN": "https://t.me/s/Pharaon_GAMERush",
   "/trackrubli-slot-drift-x": "https://t.me/s/Turbo_INFOxkved",
   "/trackrubli-slot-drift-ZONE": "https://t.me/s/Izzi_INFO",
-  "/trackrubli-slot-drift-ZONEone": "https://t.me/s/Friends_INFO",
+    "/trackrubli-slot-drift-ZONEone": "https://t.me/s/Friends_INFO",
   };
 
   const targetUrl = urlMap[slug];
-
   if (targetUrl) {
-    return Response.reDIRECT(targetUrl, 301);
+    return Response.redirect(targetUrl, 301);
   }
 
   return new Response("Not found", { status: 404 });
